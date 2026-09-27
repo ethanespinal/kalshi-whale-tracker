@@ -10,6 +10,17 @@ import sqlite3
 
 from alert_parser import parse_alert
 from reporting import breakdown, report_rows, strategy_comparison, summarize
+from series_map import series_sport
+
+
+SPORT_GROUPS = {
+    'nfl': 'football', 'ncaaf': 'football', 'nba': 'basketball',
+    'wnba': 'basketball', 'nhl': 'hockey', 'mlb': 'baseball',
+    'atp': 'tennis', 'wta': 'tennis', 'cs2': 'esports', 'dota2': 'esports',
+    'lol': 'esports', 'valorant': 'esports', 'epl': 'soccer', 'ucl': 'soccer',
+    'uefa_nations': 'soccer', 'uefa': 'soccer', 'world_cup': 'soccer',
+    'intl_friendly': 'soccer', 'mls': 'soccer', 'soccer': 'soccer',
+}
 
 
 @dataclass(frozen=True)
@@ -89,7 +100,8 @@ def query_trades(path, filters=DashboardFilters()):
         rows = [dict(row) for row in db.execute(f'''SELECT
             t.*, a.source_key, a.raw_text, a.received_at, a.details,
             a.trader AS persisted_trader,
-            original.source_key AS original_source_key
+            original.source_key AS original_source_key,
+            COALESCE(original.received_at, a.received_at) AS original_received_at
             FROM trades t JOIN alerts a ON a.id=t.alert_id
             LEFT JOIN alerts original ON original.id=t.recovery_original_alert_id
             {where} ORDER BY t.opened_at DESC''', params)]
@@ -99,6 +111,9 @@ def query_trades(path, filters=DashboardFilters()):
             record['trader'] = (source.get('persisted_trader') or 'UNKNOWN').strip() or 'UNKNOWN'
         record['_trade_id'] = source['id']
         record['_opened_at'] = source['opened_at']
+        # A recovered trade must retain the original whale-alert time so entry
+        # age measures the opportunity, rather than the recovery command time.
+        record['_alert_received_at'] = source['original_received_at']
         record['_closed_at'] = source['closed_at']
         record['_portfolio_closed_at'] = source.get('portfolio_closed_at')
         record['_portfolio_realized_units'] = source.get('portfolio_realized_pnl')
@@ -422,6 +437,13 @@ def realized_position(row):
     if realized_at is None or net_p_l is None:
         return None
     trader = str(row.get('trader') or '').strip() or 'UNKNOWN'
+    entry_time = row.get('_opened_at')
+    alert_time = row.get('_alert_received_at')
+    signal_age_seconds = None
+    if entry_time is not None and alert_time is not None:
+        candidate = entry_time - alert_time
+        if candidate >= 0:
+            signal_age_seconds = candidate
     return {
         'settled_time': realized_at,
         'trader': trader,
@@ -435,6 +457,7 @@ def realized_position(row):
         'gross_p_l': gross_p_l,
         'net_p_l': net_p_l,
         'source': source,
+        'signal_age_seconds': signal_age_seconds,
         '_record': row,
     }
 
@@ -470,6 +493,259 @@ def realized_summary(records, start_ts=None, end_ts=None):
         'settled_staked': stake, 'gross_p_l': gross,
         'total_fees': fees, 'net_p_l': net,
         'roi': net / stake if stake else None,
+    }
+
+
+def evidence_label(count):
+    if count < 10:
+        return 'INSUFFICIENT DATA (<10 settled)'
+    if count < 30:
+        return 'EARLY SIGNAL (10-29 settled)'
+    if count < 100:
+        return 'USEFUL SAMPLE (30-99 settled)'
+    return 'STRONGER EVIDENCE (100+ settled)'
+
+
+def performance_metrics(positions):
+    """Calculate diagnostics from already-realized canonical paper rows."""
+    rows = sorted(positions, key=lambda row: row['settled_time'])
+    pnl = [row['net_p_l'] for row in rows]
+    positive = [value for value in pnl if value > 0]
+    negative = [value for value in pnl if value < 0]
+    gross_profit = sum(positive, Decimal(0))
+    gross_loss = abs(sum(negative, Decimal(0)))
+    net = sum(pnl, Decimal(0))
+    peak = equity = Decimal(0)
+    max_drawdown = Decimal(0)
+    streak = longest_streak = 0
+    for value in pnl:
+        equity += value
+        peak = max(peak, equity)
+        max_drawdown = min(max_drawdown, equity - peak)
+        if value < 0:
+            streak += 1
+            longest_streak = max(longest_streak, streak)
+        else:
+            streak = 0
+    outcomes = {name: sum(row['result'] == name for row in rows)
+                for name in ('WIN', 'LOSS', 'PUSH', 'VOID')}
+    decided = outcomes['WIN'] + outcomes['LOSS']
+    return {
+        'Settled': len(rows), 'W-L': f"{outcomes['WIN']}-{outcomes['LOSS']}",
+        'Wins': outcomes['WIN'], 'Losses': outcomes['LOSS'],
+        'Pushes': outcomes['PUSH'], 'Voids': outcomes['VOID'],
+        'Win rate': Decimal(outcomes['WIN']) / decided if decided else None,
+        'Net P/L': net,
+        'ROI': net / sum((row['stake'] for row in rows), Decimal(0))
+        if rows else None,
+        'Profit factor': gross_profit / gross_loss if gross_loss else None,
+        'Expectancy/trade': net / len(rows) if rows else None,
+        'Avg win': gross_profit / len(positive) if positive else None,
+        'Avg loss': sum(negative, Decimal(0)) / len(negative) if negative else None,
+        'Largest win': max(positive) if positive else None,
+        'Largest loss': min(negative) if negative else None,
+        'Max drawdown': max_drawdown,
+        'Longest losing streak': longest_streak,
+        'Evidence': evidence_label(len(rows)),
+    }
+
+
+def analytics_positions(records):
+    """Diagnostics deliberately use settled, realized PAPER positions only."""
+    return realized_positions([row for row in records if row.get('trade_mode') == 'PAPER'])
+
+
+def equity_curve(positions):
+    equity = Decimal(0)
+    rows = []
+    for row in sorted(positions, key=lambda item: item['settled_time']):
+        equity += row['net_p_l']
+        rows.append({'time': row['settled_time'], 'equity': equity})
+    return rows
+
+
+def drawdown_curve(positions):
+    equity = peak = Decimal(0)
+    rows = []
+    for row in sorted(positions, key=lambda item: item['settled_time']):
+        equity += row['net_p_l']
+        peak = max(peak, equity)
+        rows.append({'time': row['settled_time'], 'drawdown': equity - peak})
+    return rows
+
+
+def daily_realized_p_l(positions):
+    totals = defaultdict(lambda: Decimal(0))
+    for row in positions:
+        day = datetime.fromtimestamp(row['settled_time'], timezone.utc).astimezone().date().isoformat()
+        totals[day] += row['net_p_l']
+    return [{'day': day, 'net_p_l': value} for day, value in sorted(totals.items())]
+
+
+def _entry_bucket(value):
+    if value is None:
+        return 'Unknown'
+    cents = value * 100
+    if cents <= 25:
+        return '0-25c'
+    if cents <= 40:
+        return '25-40c'
+    if cents <= 60:
+        return '40-60c'
+    if cents <= 75:
+        return '60-75c'
+    return '75-100c'
+
+
+def _slippage_bucket(value):
+    if value is None:
+        return 'Unknown'
+    if value <= Decimal('-0.05'):
+        return 'better by 5c+'
+    if value <= Decimal('-0.02'):
+        return 'better by 2-5c'
+    if value < 0:
+        return 'better by 0-2c'
+    if value == 0:
+        return 'same price'
+    return 'worse than whale'
+
+
+def _hours_bucket(value):
+    if value is None:
+        return 'Unknown'
+    if value < Decimal('.5'):
+        return '<30m'
+    if value < 1:
+        return '30-60m'
+    if value < 3:
+        return '1-3h'
+    if value < 6:
+        return '3-6h'
+    if value < 12:
+        return '6-12h'
+    if value <= 24:
+        return '12-24h'
+    return '24h+'
+
+
+def _signal_age_bucket(value):
+    """Bucket elapsed seconds between the original signal and paper entry."""
+    if value is None or value < 0:
+        return 'Unknown'
+    if value < 60:
+        return '0-1 min'
+    if value < 5 * 60:
+        return '1-5 min'
+    if value < 15 * 60:
+        return '5-15 min'
+    if value < 30 * 60:
+        return '15-30 min'
+    if value < 60 * 60:
+        return '30-60 min'
+    return '1h+'
+
+
+def _quality_bucket(value, kind):
+    if value is None:
+        return 'Unknown'
+    if kind == 'win_rate':
+        return ('under 50%' if value < 50 else '50-59%' if value < 60 else
+                '60-69%' if value < 70 else '70-79%' if value < 80 else '80%+')
+    return ('under 50%' if value < 50 else '50-99%' if value < 100 else
+            '100-149%' if value < 150 else '150-199%' if value < 200 else '200%+')
+
+
+def _segment_value(position, dimension):
+    record = position['_record']
+    if dimension == 'whale':
+        return position['trader']
+    if dimension == 'sport':
+        league = series_sport(record.get('series'))
+        return SPORT_GROUPS.get(league, league or 'Unknown')
+    if dimension == 'series':
+        return record.get('series') or 'Unknown'
+    if dimension == 'market type':
+        return record.get('market_type') or 'Unknown'
+    if dimension == 'source':
+        return position['source']
+    if dimension == 'entry price':
+        return _entry_bucket(record.get('simulated_live_entry'))
+    if dimension == 'slippage':
+        return _slippage_bucket(record.get('slippage'))
+    if dimension == 'hours to resolution':
+        return _hours_bucket(record.get('hours_to_close'))
+    if dimension == 'signal age':
+        return _signal_age_bucket(position.get('signal_age_seconds'))
+    if dimension == 'whale win rate':
+        return _quality_bucket(record.get('whale_win_rate'), 'win_rate')
+    if dimension == 'whale ROI':
+        return _quality_bucket(record.get('whale_roi'), 'roi')
+    if dimension == 'whale / sport':
+        return f"{position['trader']} / {_segment_value(position, 'sport')}"
+    if dimension == 'whale / market type':
+        return f"{position['trader']} / {_segment_value(position, 'market type')}"
+    if dimension == 'signal age / slippage':
+        return f"{_segment_value(position, 'signal age')} / {_segment_value(position, 'slippage')}"
+    if dimension == 'signal age / market type':
+        return f"{_segment_value(position, 'signal age')} / {_segment_value(position, 'market type')}"
+    if dimension == 'signal age / series':
+        return f"{_segment_value(position, 'signal age')} / {_segment_value(position, 'series')}"
+    if dimension == 'signal age / whale':
+        return f"{_segment_value(position, 'signal age')} / {position['trader']}"
+    raise ValueError(f'Unknown analytics segment: {dimension}')
+
+
+def analytics_breakdown(positions, dimension):
+    groups = defaultdict(list)
+    for row in positions:
+        groups[_segment_value(row, dimension)].append(row)
+    output = []
+    for label, rows in groups.items():
+        metrics = performance_metrics(rows)
+        output.append({'Dimension': dimension, 'Segment': label, **metrics})
+    return sorted(output, key=lambda row: (-row['Settled'], str(row['Segment'])))
+
+
+def whale_analytics(positions):
+    output = []
+    for row in analytics_breakdown(positions, 'whale'):
+        whale_positions = [item for item in positions if item['trader'] == row['Segment']]
+        recent = sorted(whale_positions, key=lambda item: item['settled_time'], reverse=True)
+        for window in (10, 25, 50):
+            subset = recent[:window]
+            prefix = f'Recent {window}'
+            if len(subset) < window:
+                row[f'{prefix}'] = f'INSUFFICIENT (<{window})'
+            else:
+                stats = performance_metrics(subset)
+                row[f'{prefix}'] = f"{stats['W-L']} | {stats['Net P/L']:+.2f}"
+        output.append(row)
+    return output
+
+
+def analytics_segment_notes(breakdowns):
+    rows = [row for groups in breakdowns.values() for row in groups]
+    usable = [row for row in rows if row['Settled'] >= 10]
+    best = sorted(usable, key=lambda row: (-row['Expectancy/trade'], -row['Settled']))[:5]
+    worst = sorted(usable, key=lambda row: (row['Expectancy/trade'], -row['Settled']))[:5]
+    needs_data = sorted((row for row in rows if row['Settled'] < 10),
+                        key=lambda row: (-row['Settled'], str(row['Segment'])))[:8]
+    return {'best': best, 'worst': worst, 'needs_data': needs_data}
+
+
+def conflict_diagnostics(positions):
+    """Report only conflict facts the existing trade ledger can substantiate."""
+    conflict_rows = [row for row in positions if
+                     row['_record'].get('conflict_action') or
+                     row['_record'].get('conflict_decision')]
+    if len(conflict_rows) < 10:
+        return {'status': 'INSUFFICIENT DATA', 'count': len(conflict_rows), 'rows': []}
+    stronger = [row for row in conflict_rows
+                if row['_record'].get('conflict_action') == 'flip']
+    return {
+        'status': 'AVAILABLE', 'count': len(conflict_rows),
+        'rows': analytics_breakdown(stronger, 'source') if stronger else [],
     }
 
 

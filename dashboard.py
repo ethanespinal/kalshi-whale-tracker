@@ -3,16 +3,21 @@ from datetime import date, datetime, time as date_time, timedelta, timezone
 from decimal import Decimal
 import sqlite3
 
+import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
 
 from config import Settings
 from dashboard_data import (DashboardFilters, backend_is_online, dashboard_metrics,
+                            analytics_breakdown, analytics_positions,
+                            analytics_segment_notes, conflict_diagnostics,
                             comparison_rows, filter_options, grouped_rows, query_skipped_alerts,
                             conflicting_signal_count,
+                            daily_realized_p_l, drawdown_curve, equity_curve,
                             open_bet_rows, query_trades, read_operational_state, recent_activity,
                             placed_trade_activity, realized_positions, realized_summary,
-                            recovery_summary, sort_activity_rows, trade_activity, whale_rows)
+                            recovery_summary, sort_activity_rows, trade_activity,
+                            performance_metrics, whale_analytics, whale_rows)
 from dashboard_ui import (TERMINAL_CSS, activity_html, compact_grid_html, header_html,
                           format_performance_value, metrics_html, open_bets_html,
                           terminal_component_document, tone)
@@ -58,8 +63,12 @@ def display_rows(rows, display_mode='$', fixed_stake_dollars=25):
                 result[key] = price(result[key])
         performance_keys = ('stake', 'result_p_l', 'estimated_fee', 'total_paper_cost',
                             'open_exposure_contribution', 'Total stake', 'Net P/L',
-                            'Stake', 'Fees', 'fees', 'gross_p_l', 'net_p_l')
-        signed_keys = ('result_p_l', 'Net P/L', 'gross_p_l', 'net_p_l')
+                            'Stake', 'Fees', 'fees', 'gross_p_l', 'net_p_l',
+                            'Expectancy/trade', 'Avg win', 'Avg loss', 'Largest win',
+                            'Largest loss', 'Max drawdown')
+        signed_keys = ('result_p_l', 'Net P/L', 'gross_p_l', 'net_p_l',
+                       'Expectancy/trade', 'Avg win', 'Avg loss', 'Largest win',
+                       'Largest loss', 'Max drawdown')
         for key in performance_keys:
             if key in result and isinstance(result[key], (int, float, Decimal)):
                 result[key] = format_performance_value(
@@ -68,6 +77,8 @@ def display_rows(rows, display_mode='$', fixed_stake_dollars=25):
         for key in ('Win rate', 'ROI'):
             if key in result:
                 result[key] = percent(result[key])
+        if isinstance(result.get('Profit factor'), Decimal):
+            result['Profit factor'] = f"{result['Profit factor']:.2f}"
         for key in ('whale_win_rate', 'whale_roi'):
             if key in result and result[key] is not None:
                 result[key] = f'{Decimal(result[key]):.1f}%'
@@ -77,6 +88,18 @@ def display_rows(rows, display_mode='$', fixed_stake_dollars=25):
         result.pop('hours_to_close', None)
         output.append(result)
     return output
+
+
+def chart_frame(rows, x, y):
+    """Convert read-only Decimal analytics rows for Streamlit's native charts."""
+    frame = pd.DataFrame(rows)
+    if frame.empty:
+        return frame
+    if x == 'time':
+        frame[x] = pd.to_datetime(frame[x], unit='s', utc=True).dt.tz_convert(None)
+    if y in frame:
+        frame[y] = frame[y].map(float)
+    return frame
 
 
 try:
@@ -208,6 +231,19 @@ def live_dashboard(active_filters, active_trade_mode, viewport_width, viewport_h
     # shadow signals remain visible alongside placed trades.
     all_activity = recent_activity(settings.database, active_filters, 100)
     leaders = whale_rows(trades, 'P/L')
+    diagnostic_positions = analytics_positions(all_trades)
+    diagnostics = performance_metrics(diagnostic_positions)
+    diagnostic_breakdowns = {
+        dimension: analytics_breakdown(diagnostic_positions, dimension)
+        for dimension in ('whale', 'sport', 'series', 'market type', 'source',
+                          'signal age', 'signal age / slippage',
+                          'signal age / market type', 'signal age / series',
+                          'signal age / whale', 'entry price', 'slippage',
+                          'hours to resolution', 'whale win rate', 'whale ROI',
+                          'whale / sport', 'whale / market type')
+    }
+    diagnostic_notes = analytics_segment_notes(diagnostic_breakdowns)
+    diagnostic_conflicts = conflict_diagnostics(diagnostic_positions)
 
     with st.container(key='terminal_shell', width=viewport_width,
                       height=viewport_height, gap='small'):
@@ -240,9 +276,9 @@ def live_dashboard(active_filters, active_trade_mode, viewport_width, viewport_h
                 placed_activity, leaders, active_display_mode, fixed_stake_dollars)),
             height=compact_height, scrolling=False)
 
-        live_tab, open_tab, today_tab, whales_tab, types_tab, slippage_tab, history_tab, skipped_tab = st.tabs(
+        live_tab, open_tab, today_tab, whales_tab, types_tab, slippage_tab, analytics_tab, history_tab, skipped_tab = st.tabs(
             ['Live', 'OPEN BETS', 'SETTLED TODAY', 'Whales', 'Market Types', 'Slippage',
-             'History', 'Skipped Alerts'])
+             'ANALYTICS', 'History', 'Skipped Alerts'])
 
         with live_tab:
             all_sort_col, all_order_col = st.columns([2, 2])
@@ -341,6 +377,88 @@ def live_dashboard(active_filters, active_trade_mode, viewport_width, viewport_h
             st.dataframe(display_rows(grouped_rows(trades, 'hours_to_close_bucket'),
                                       active_display_mode, fixed_stake_dollars),
                          width='stretch', hide_index=True)
+        with analytics_tab:
+            diagnostic_metrics = [
+                ('Profit factor', 'n/a' if diagnostics['Profit factor'] is None
+                 else f"{diagnostics['Profit factor']:.2f}", 'tui-accent',
+                 diagnostics['Evidence']),
+                ('Expectancy/trade', performance(diagnostics['Expectancy/trade'], signed=True),
+                 tone(diagnostics['Expectancy/trade'], pnl=True), 'realized paper'),
+                ('Max drawdown', performance(diagnostics['Max drawdown'], signed=True),
+                 tone(diagnostics['Max drawdown'], pnl=True), 'realized equity'),
+                ('Longest loss streak', str(diagnostics['Longest losing streak']), 'tui-warning',
+                 f"{diagnostics['Settled']} settled"),
+                ('Avg win / loss',
+                 f"{performance(diagnostics['Avg win'], signed=True)} / "
+                 f"{performance(diagnostics['Avg loss'], signed=True)}",
+                 'tui-accent', 'net P/L'),
+            ]
+            st.html(metrics_html(diagnostic_metrics))
+            if not diagnostic_positions:
+                st.info('INSUFFICIENT DATA — no settled realized PAPER positions for current filters.')
+            else:
+                equity_col, daily_col, drawdown_col = st.columns(3)
+                with equity_col:
+                    st.caption(':: equity curve')
+                    st.line_chart(chart_frame(equity_curve(diagnostic_positions), 'time', 'equity'),
+                                  x='time', y='equity', height=190)
+                with daily_col:
+                    st.caption(':: daily realized P/L')
+                    st.bar_chart(chart_frame(daily_realized_p_l(diagnostic_positions), 'day', 'net_p_l'),
+                                 x='day', y='net_p_l', height=190)
+                with drawdown_col:
+                    st.caption(':: drawdown')
+                    st.area_chart(chart_frame(drawdown_curve(diagnostic_positions), 'time', 'drawdown'),
+                                  x='time', y='drawdown', height=190)
+
+                st.markdown('### :: strategy diagnostics')
+                note_cols = st.columns(3)
+                with note_cols[0]:
+                    st.caption('BEST SEGMENTS // ≥10 settled')
+                    st.dataframe(display_rows(diagnostic_notes['best'], active_display_mode,
+                                              fixed_stake_dollars), width='stretch', hide_index=True)
+                with note_cols[1]:
+                    st.caption('WORST SEGMENTS // ≥10 settled')
+                    st.dataframe(display_rows(diagnostic_notes['worst'], active_display_mode,
+                                              fixed_stake_dollars), width='stretch', hide_index=True)
+                with note_cols[2]:
+                    st.caption('NEEDS MORE DATA // <10 settled')
+                    st.dataframe(display_rows(diagnostic_notes['needs_data'], active_display_mode,
+                                              fixed_stake_dollars), width='stretch', hide_index=True)
+
+                st.markdown('### :: whale performance and recent samples')
+                st.dataframe(display_rows(whale_analytics(diagnostic_positions), active_display_mode,
+                                          fixed_stake_dollars), width='stretch', hide_index=True)
+                st.markdown('### :: signal age at entry')
+                st.dataframe(display_rows(diagnostic_breakdowns['signal age'],
+                                          active_display_mode, fixed_stake_dollars),
+                             width='stretch', hide_index=True)
+
+                for title, dimension in (
+                    ('P/L by market type', 'market type'), ('P/L by whale', 'whale'),
+                    ('P/L by sport', 'sport'), ('P/L by series', 'series'),
+                    ('Entry price', 'entry price'), ('Slippage', 'slippage'),
+                    ('Signal age × slippage', 'signal age / slippage'),
+                    ('Signal age × market type', 'signal age / market type'),
+                    ('Signal age × series', 'signal age / series'),
+                    ('Signal age × whale', 'signal age / whale'),
+                    ('Hours to resolution', 'hours to resolution'),
+                    ('Whale win-rate bucket', 'whale win rate'),
+                    ('Whale ROI bucket', 'whale ROI'), ('Source (audit metadata)', 'source'),
+                    ('Whale × sport', 'whale / sport'),
+                    ('Whale × market type', 'whale / market type')):
+                    st.markdown(f'### :: {title.lower()}')
+                    st.dataframe(display_rows(diagnostic_breakdowns[dimension],
+                                              active_display_mode, fixed_stake_dollars),
+                                 width='stretch', hide_index=True)
+                if diagnostic_conflicts['status'] == 'INSUFFICIENT DATA':
+                    st.info(f"WHALE AGREEMENT / CONFLICT — INSUFFICIENT DATA "
+                            f"({diagnostic_conflicts['count']} settled conflict signals).")
+                else:
+                    st.markdown('### :: whale conflicts')
+                    st.dataframe(display_rows(diagnostic_conflicts['rows'],
+                                              active_display_mode, fixed_stake_dollars),
+                                 width='stretch', hide_index=True)
         with history_tab:
             st.dataframe(display_rows(trade_activity(trades), active_display_mode,
                                       fixed_stake_dollars), width='stretch', hide_index=True)

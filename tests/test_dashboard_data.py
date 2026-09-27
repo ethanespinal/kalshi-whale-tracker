@@ -8,6 +8,8 @@ import unittest
 
 from config import Settings
 from dashboard_data import (DashboardFilters, backend_is_online, dashboard_metrics,
+                            analytics_breakdown, analytics_positions, daily_realized_p_l,
+                            equity_curve, performance_metrics,
                             filter_options, query_skipped_alerts, query_trades,
                             open_bet_rows, read_operational_state, recent_activity,
                             placed_trade_activity, realized_positions,
@@ -44,6 +46,20 @@ class DashboardDataTests(unittest.TestCase):
             code_version='code123', strategy_mode=strategy_mode), 'traded')
         if result:
             self.db.settle(alert['id'], result)
+
+    @staticmethod
+    def analytics_position(timestamp, pnl, result, trader='Alpha', source='NORMAL',
+                           market_type='game_winner', series='KXNFLGAME',
+                           signal_age_seconds=0):
+        return {
+            'settled_time': timestamp, 'trader': trader, 'net_p_l': Decimal(str(pnl)),
+            'stake': Decimal('25'), 'result': result, 'source': source,
+            'signal_age_seconds': signal_age_seconds,
+            '_record': {'series': series, 'market_type': market_type,
+                        'simulated_live_entry': Decimal('.50'),
+                        'slippage': Decimal('0'), 'hours_to_close': Decimal('2'),
+                        'whale_win_rate': Decimal('70'), 'whale_roi': Decimal('100')},
+        }
 
     def test_strategy_code_and_session_persist_on_paper_trade(self):
         raw = message('NFL: Falcons vs Packers', 'Falcons')
@@ -227,6 +243,66 @@ class DashboardDataTests(unittest.TestCase):
             rows, 'T-resolve', ascending=True)], ['Beta', 'Alpha', 'Zulu'])
         self.assertEqual([row['trader'] for row in sort_activity_rows(
             rows, 'T-resolve', ascending=False)], ['Zulu', 'Alpha', 'Beta'])
+
+    def test_analytics_profit_factor_expectancy_drawdown_and_streak(self):
+        positions = [
+            self.analytics_position(1, 10, 'WIN'),
+            self.analytics_position(2, -5, 'LOSS'),
+            self.analytics_position(3, -5, 'LOSS'),
+        ]
+        metrics = performance_metrics(positions)
+        self.assertEqual(metrics['Profit factor'], Decimal('1'))
+        self.assertEqual(metrics['Expectancy/trade'], Decimal('0'))
+        self.assertEqual(metrics['Avg win'], Decimal('10'))
+        self.assertEqual(metrics['Avg loss'], Decimal('-5'))
+        self.assertEqual(metrics['Max drawdown'], Decimal('-10'))
+        self.assertEqual(metrics['Longest losing streak'], 2)
+        self.assertEqual(equity_curve(positions)[-1]['equity'], Decimal('0'))
+
+    def test_analytics_signal_age_segments_and_comparisons(self):
+        positions = [
+            self.analytics_position(1, 10, 'WIN', signal_age_seconds=30),
+            self.analytics_position(2, -4, 'LOSS', trader='Beta', market_type='total',
+                                    series='KXMLSTOTAL', signal_age_seconds=60),
+            self.analytics_position(3, 2, 'WIN', signal_age_seconds=300),
+            self.analytics_position(4, -1, 'LOSS', signal_age_seconds=900),
+            self.analytics_position(5, 4, 'WIN', signal_age_seconds=1800),
+            self.analytics_position(6, 3, 'WIN', signal_age_seconds=3600),
+        ]
+        ages = analytics_breakdown(positions, 'signal age')
+        self.assertEqual({row['Segment'] for row in ages}, {
+            '0-1 min', '1-5 min', '5-15 min', '15-30 min', '30-60 min', '1h+'})
+        self.assertEqual(sum(row['Settled'] for row in ages), 6)
+        self.assertEqual(sum(row['Net P/L'] for row in ages), Decimal('14'))
+        self.assertEqual(sum(row['Settled'] for row in analytics_breakdown(
+            positions, 'signal age / slippage')), 6)
+        self.assertEqual(sum(row['Settled'] for row in analytics_breakdown(
+            positions, 'signal age / market type')), 6)
+        self.assertEqual(sum(row['Settled'] for row in analytics_breakdown(
+            positions, 'signal age / series')), 6)
+        self.assertEqual(sum(row['Settled'] for row in analytics_breakdown(
+            positions, 'signal age / whale')), 6)
+        self.assertEqual(next(row for row in analytics_breakdown(positions, 'market type')
+                              if row['Segment'] == 'total')['Settled'], 1)
+        self.assertEqual(daily_realized_p_l(positions)[0]['net_p_l'], Decimal('14'))
+
+    def test_signal_age_uses_original_alert_time_for_recovered_trade(self):
+        self.enter('signal-age', 'AGE', 'Alpha', 'session-a', 'v1.10', 'yes')
+        with self.db.connect() as db:
+            db.execute("UPDATE alerts SET received_at=1000 WHERE source_key='signal-age'")
+            db.execute("UPDATE trades SET opened_at=1300")
+        positions = analytics_positions(query_trades(self.path))
+        self.assertEqual(positions[0]['signal_age_seconds'], 300)
+        self.assertEqual(analytics_breakdown(positions, 'signal age')[0]['Segment'], '5-15 min')
+
+    def test_analytics_reconciles_with_canonical_realized_paper_ledger(self):
+        self.enter('analytics-a', 'A', 'Alpha', 'session-a', 'v1.10', 'yes')
+        self.enter('analytics-b', 'B', 'Beta', 'session-a', 'v1.10', 'no')
+        records = query_trades(self.path)
+        positions = analytics_positions(records)
+        metrics = dashboard_metrics(records, self.settings.starting_cash, 0)
+        self.assertEqual(len(positions), metrics['settled_trades'])
+        self.assertEqual(sum(row['net_p_l'] for row in positions), metrics['net_p_l'])
 
 
 if __name__ == '__main__':
