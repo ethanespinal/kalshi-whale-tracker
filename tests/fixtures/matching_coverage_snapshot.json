@@ -1,0 +1,1615 @@
+[
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "MECNET",
+      "event_ticker": "KXNFLGAME-26SEP27LARDEN",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-15T20:01:54.019349Z",
+      "mutually_exclusive": true,
+      "product_metadata": {
+        "competition": "Pro Football",
+        "competition_scope": "Game"
+      },
+      "series_ticker": "KXNFLGAME",
+      "settlement_sources": [
+        {
+          "name": "the Governing League",
+          "url": "https://www.nfl.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "LAR vs DEN (Sep 27)",
+      "title": "Los Angeles R vs Denver"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-30T00:20:00Z",
+        "created_time": "2026-09-15T16:11:19.961157Z",
+        "custom_strike": {
+          "football_team": "422d5fd7-ad18-4c96-902d-6f7c50e4660f"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLGAME-26SEP27LARDEN",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-28T06:20:00Z",
+        "expiration_time": "2026-09-30T00:20:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.5500",
+        "latest_expiration_time": "2026-09-30T00:20:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.4600",
+        "no_bid_dollars": "0.4500",
+        "no_sub_title": "Los Angeles R",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-28T03:20:00Z",
+        "open_interest_fp": "205797.70",
+        "open_time": "2026-09-15T16:16:00Z",
+        "previous_price_dollars": "0.5500",
+        "previous_yes_ask_dollars": "0.5500",
+        "previous_yes_bid_dollars": "0.5400",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If Los Angeles R wins the Los Angeles R vs Denver Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the team who wins the Los Angeles R vs Denver Pro Football game originally scheduled for Sep 27, 2026. If the game ends in a tie, the market will resolve to $0.50 for each team. If the game is postponed but begins within 48 hours from its originally scheduled start time, the market will remain open and resolve based on the official final result. If the game is not started within 48 hours, the market will resolve to a fair price.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXNFLGAME-26SEP27LARDEN-LAR",
+        "title": "Los Angeles R wins",
+        "updated_time": "2026-09-15T20:00:37.318201Z",
+        "volume_24h_fp": "109781.02",
+        "volume_fp": "222185.06",
+        "yes_ask_dollars": "0.5500",
+        "yes_ask_size_fp": "3884118.84",
+        "yes_bid_dollars": "0.5400",
+        "yes_bid_size_fp": "90304.57",
+        "yes_sub_title": "Los Angeles R"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-30T00:20:00Z",
+        "created_time": "2026-09-15T16:11:19.961157Z",
+        "custom_strike": {
+          "football_team": "0aa02fd7-1bb1-474b-98e1-5379d0a191e3"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLGAME-26SEP27LARDEN",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-28T06:20:00Z",
+        "expiration_time": "2026-09-30T00:20:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.4600",
+        "latest_expiration_time": "2026-09-30T00:20:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.5500",
+        "no_bid_dollars": "0.5400",
+        "no_sub_title": "Denver",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-28T03:20:00Z",
+        "open_interest_fp": "303580.36",
+        "open_time": "2026-09-15T16:16:00Z",
+        "previous_price_dollars": "0.4600",
+        "previous_yes_ask_dollars": "0.4600",
+        "previous_yes_bid_dollars": "0.4500",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If Denver wins the Los Angeles R vs Denver Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the team who wins the Los Angeles R vs Denver Pro Football game originally scheduled for Sep 27, 2026. If the game ends in a tie, the market will resolve to $0.50 for each team. If the game is postponed but begins within 48 hours from its originally scheduled start time, the market will remain open and resolve based on the official final result. If the game is not started within 48 hours, the market will resolve to a fair price.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXNFLGAME-26SEP27LARDEN-DEN",
+        "title": "Denver wins",
+        "updated_time": "2026-09-15T20:00:37.318201Z",
+        "volume_24h_fp": "174250.40",
+        "volume_fp": "322424.85",
+        "yes_ask_dollars": "0.4600",
+        "yes_ask_size_fp": "2431095.74",
+        "yes_bid_dollars": "0.4500",
+        "yes_bid_size_fp": "559019.86",
+        "yes_sub_title": "Denver"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "MECNET",
+      "event_ticker": "KXNFLGAME-26SEP27NYJDET",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-15T20:01:54.098453Z",
+      "mutually_exclusive": true,
+      "product_metadata": {
+        "competition": "Pro Football",
+        "competition_scope": "Game"
+      },
+      "series_ticker": "KXNFLGAME",
+      "settlement_sources": [
+        {
+          "name": "the Governing League",
+          "url": "https://www.nfl.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "NYJ vs DET (Sep 27)",
+      "title": "New York J vs Detroit"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-15T16:11:14.81084Z",
+        "custom_strike": {
+          "football_team": "ccc2af2d-5c4d-4717-8036-5ba6bec5cfbd"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLGAME-26SEP27NYJDET",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T23:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.2700",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.7400",
+        "no_bid_dollars": "0.7300",
+        "no_sub_title": "New York J",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "390018.92",
+        "open_time": "2026-09-15T16:15:00Z",
+        "previous_price_dollars": "0.2800",
+        "previous_yes_ask_dollars": "0.2800",
+        "previous_yes_bid_dollars": "0.2700",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If New York J wins the New York J vs Detroit Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the team who wins the New York J vs Detroit Pro Football game originally scheduled for Sep 27, 2026. If the game ends in a tie, the market will resolve to $0.50 for each team. If the game is postponed but begins within 48 hours from its originally scheduled start time, the market will remain open and resolve based on the official final result. If the game is not started within 48 hours, the market will resolve to a fair price.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXNFLGAME-26SEP27NYJDET-NYJ",
+        "title": "New York J wins",
+        "updated_time": "2026-09-15T19:54:29.262419Z",
+        "volume_24h_fp": "259219.29",
+        "volume_fp": "414765.14",
+        "yes_ask_dollars": "0.2700",
+        "yes_ask_size_fp": "2676503.59",
+        "yes_bid_dollars": "0.2600",
+        "yes_bid_size_fp": "38488.62",
+        "yes_sub_title": "New York J"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-15T16:11:14.81084Z",
+        "custom_strike": {
+          "football_team": "f95a55a7-8472-4ffa-be20-14547e3c32ff"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLGAME-26SEP27NYJDET",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T23:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.7400",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.2700",
+        "no_bid_dollars": "0.2600",
+        "no_sub_title": "Detroit",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "403221.12",
+        "open_time": "2026-09-15T16:15:00Z",
+        "previous_price_dollars": "0.7300",
+        "previous_yes_ask_dollars": "0.7300",
+        "previous_yes_bid_dollars": "0.7200",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If Detroit wins the New York J vs Detroit Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the team who wins the New York J vs Detroit Pro Football game originally scheduled for Sep 27, 2026. If the game ends in a tie, the market will resolve to $0.50 for each team. If the game is postponed but begins within 48 hours from its originally scheduled start time, the market will remain open and resolve based on the official final result. If the game is not started within 48 hours, the market will resolve to a fair price.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXNFLGAME-26SEP27NYJDET-DET",
+        "title": "Detroit wins",
+        "updated_time": "2026-09-15T19:54:29.262419Z",
+        "volume_24h_fp": "320464.49",
+        "volume_fp": "414430.44",
+        "yes_ask_dollars": "0.7400",
+        "yes_ask_size_fp": "1678153.24",
+        "yes_bid_dollars": "0.7300",
+        "yes_bid_size_fp": "590918.70",
+        "yes_sub_title": "Detroit"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "MECNET",
+      "event_ticker": "KXNFLGAME-26SEP27NEJAC",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-15T20:01:54.102903Z",
+      "mutually_exclusive": true,
+      "product_metadata": {
+        "competition": "Pro Football",
+        "competition_scope": "Game"
+      },
+      "series_ticker": "KXNFLGAME",
+      "settlement_sources": [
+        {
+          "name": "the Governing League",
+          "url": "https://www.nfl.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "NE vs JAC (Sep 27)",
+      "title": "New England vs Jacksonville"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-15T16:11:13.485389Z",
+        "custom_strike": {
+          "football_team": "d1d64188-5cd5-4feb-97ff-8542c9dbeb43"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLGAME-26SEP27NEJAC",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T23:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.4100",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.6000",
+        "no_bid_dollars": "0.5900",
+        "no_sub_title": "New England",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "614182.85",
+        "open_time": "2026-09-15T16:15:00Z",
+        "previous_price_dollars": "0.4100",
+        "previous_yes_ask_dollars": "0.4100",
+        "previous_yes_bid_dollars": "0.4000",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If New England wins the New England vs Jacksonville Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the team who wins the New England vs Jacksonville Pro Football game originally scheduled for Sep 27, 2026. If the game ends in a tie, the market will resolve to $0.50 for each team. If the game is postponed but begins within 48 hours from its originally scheduled start time, the market will remain open and resolve based on the official final result. If the game is not started within 48 hours, the market will resolve to a fair price.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXNFLGAME-26SEP27NEJAC-NE",
+        "title": "New England wins",
+        "updated_time": "2026-09-15T19:53:58.200814Z",
+        "volume_24h_fp": "385541.09",
+        "volume_fp": "635437.08",
+        "yes_ask_dollars": "0.4100",
+        "yes_ask_size_fp": "4764796.06",
+        "yes_bid_dollars": "0.4000",
+        "yes_bid_size_fp": "374157.33",
+        "yes_sub_title": "New England"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-15T16:11:13.485389Z",
+        "custom_strike": {
+          "football_team": "61a75ab7-eaf0-4601-b920-86b1e165007d"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLGAME-26SEP27NEJAC",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T23:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.6000",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.4100",
+        "no_bid_dollars": "0.4000",
+        "no_sub_title": "Jacksonville",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "427139.86",
+        "open_time": "2026-09-15T16:15:00Z",
+        "previous_price_dollars": "0.6000",
+        "previous_yes_ask_dollars": "0.6000",
+        "previous_yes_bid_dollars": "0.5900",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If Jacksonville wins the New England vs Jacksonville Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the team who wins the New England vs Jacksonville Pro Football game originally scheduled for Sep 27, 2026. If the game ends in a tie, the market will resolve to $0.50 for each team. If the game is postponed but begins within 48 hours from its originally scheduled start time, the market will remain open and resolve based on the official final result. If the game is not started within 48 hours, the market will resolve to a fair price.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXNFLGAME-26SEP27NEJAC-JAC",
+        "title": "Jacksonville wins",
+        "updated_time": "2026-09-15T19:53:58.200814Z",
+        "volume_24h_fp": "343472.98",
+        "volume_fp": "438883.83",
+        "yes_ask_dollars": "0.6000",
+        "yes_ask_size_fp": "1499993.26",
+        "yes_bid_dollars": "0.5900",
+        "yes_bid_size_fp": "581058.29",
+        "yes_sub_title": "Jacksonville"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "",
+      "event_ticker": "KXNFLTOTAL-26SEP27NYJDET",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-21T01:08:19.229692Z",
+      "mutually_exclusive": false,
+      "product_metadata": {
+        "competition": "Pro Football",
+        "competition_scope": "Point Total"
+      },
+      "series_ticker": "KXNFLTOTAL",
+      "settlement_sources": [
+        {
+          "name": "the Governing League",
+          "url": "https://www.nfl.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "NYJ vs DET (Sep 27)",
+      "title": "NY Jets vs DET Lions: Total Points"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-21T01:01:01.591205Z",
+        "early_close_condition": "This market will close and expire early if the event occurs.",
+        "event_ticker": "KXNFLTOTAL-26SEP27NYJDET",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "floor_strike": 46.5,
+        "last_price_dollars": "0.6000",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.4100",
+        "no_bid_dollars": "0.4000",
+        "no_sub_title": "Over 46.5 points scored",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "5702.24",
+        "open_time": "2026-09-21T01:05:00Z",
+        "previous_price_dollars": "0.5600",
+        "previous_yes_ask_dollars": "0.5700",
+        "previous_yes_bid_dollars": "0.5600",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If NY Jets and DET Lions collectively score more than 46.5 points in the NY Jets vs DET Lions Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "Kalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "greater",
+        "ticker": "KXNFLTOTAL-26SEP27NYJDET-47",
+        "title": "Full Game: over 46.5 points scored?",
+        "updated_time": "2026-09-26T01:21:53.076831Z",
+        "volume_24h_fp": "5129.81",
+        "volume_fp": "5702.24",
+        "yes_ask_dollars": "0.6000",
+        "yes_ask_size_fp": "15357.03",
+        "yes_bid_dollars": "0.5900",
+        "yes_bid_size_fp": "158886.97",
+        "yes_sub_title": "Over 46.5 points"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "",
+      "event_ticker": "KXNFLTOTAL-26SEP27LACBUF",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-21T01:08:19.176784Z",
+      "mutually_exclusive": false,
+      "product_metadata": {
+        "competition": "Pro Football",
+        "competition_scope": "Point Total"
+      },
+      "series_ticker": "KXNFLTOTAL",
+      "settlement_sources": [
+        {
+          "name": "the Governing League",
+          "url": "https://www.nfl.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "LAC vs BUF (Sep 27)",
+      "title": "LA Chargers vs BUF Bills: Total Points"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-21T01:01:00.294252Z",
+        "early_close_condition": "This market will close and expire early if the event occurs.",
+        "event_ticker": "KXNFLTOTAL-26SEP27LACBUF",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "floor_strike": 47.5,
+        "last_price_dollars": "0.5800",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.4200",
+        "no_bid_dollars": "0.4100",
+        "no_sub_title": "Over 47.5 points scored",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "15927.89",
+        "open_time": "2026-09-21T01:05:00Z",
+        "previous_price_dollars": "0.5900",
+        "previous_yes_ask_dollars": "0.5900",
+        "previous_yes_bid_dollars": "0.5800",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If LA Chargers and BUF Bills collectively score more than 47.5 points in the LA Chargers vs BUF Bills Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "Kalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "greater",
+        "ticker": "KXNFLTOTAL-26SEP27LACBUF-48",
+        "title": "Full Game: over 47.5 points scored?",
+        "updated_time": "2026-09-26T01:21:53.076831Z",
+        "volume_24h_fp": "15976.69",
+        "volume_fp": "16124.19",
+        "yes_ask_dollars": "0.5900",
+        "yes_ask_size_fp": "17647.54",
+        "yes_bid_dollars": "0.5800",
+        "yes_bid_size_fp": "208850.68",
+        "yes_sub_title": "Over 47.5 points"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "",
+      "event_ticker": "KXNFLSPREAD-26SEP27NYJDET",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-21T01:08:19.067887Z",
+      "mutually_exclusive": false,
+      "product_metadata": {
+        "competition": "Pro Football",
+        "competition_scope": "Spread"
+      },
+      "series_ticker": "KXNFLSPREAD",
+      "settlement_sources": [
+        {
+          "name": "the Governing League",
+          "url": "https://www.nfl.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "NYJ vs DET (Sep 27)",
+      "title": "NY Jets vs DET Lions: Spread"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-21T01:01:00.982625Z",
+        "custom_strike": {
+          "football_team": "ccc2af2d-5c4d-4717-8036-5ba6bec5cfbd"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLSPREAD-26SEP27NYJDET",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "floor_strike": 14.5,
+        "last_price_dollars": "0.0300",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.9700",
+        "no_bid_dollars": "0.9600",
+        "no_sub_title": "NY Jets wins by over 14.5 points",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "1953.00",
+        "open_time": "2026-09-21T01:05:00Z",
+        "previous_price_dollars": "0.0500",
+        "previous_yes_ask_dollars": "0.0400",
+        "previous_yes_bid_dollars": "0.0300",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If NY Jets wins by more than 14.5 points in the NY Jets vs DET Lions Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "Kalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "greater",
+        "ticker": "KXNFLSPREAD-26SEP27NYJDET-NYJ15",
+        "title": "NY Jets wins by over 14.5 points?",
+        "updated_time": "2026-09-21T01:05:01.309152Z",
+        "volume_24h_fp": "178.26",
+        "volume_fp": "2148.17",
+        "yes_ask_dollars": "0.0400",
+        "yes_ask_size_fp": "25809.00",
+        "yes_bid_dollars": "0.0300",
+        "yes_bid_size_fp": "169142.35",
+        "yes_sub_title": "NY Jets wins by over 14.5 points"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-21T01:01:00.982625Z",
+        "custom_strike": {
+          "football_team": "f95a55a7-8472-4ffa-be20-14547e3c32ff"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLSPREAD-26SEP27NYJDET",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "floor_strike": 14.5,
+        "last_price_dollars": "0.2500",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.7500",
+        "no_bid_dollars": "0.7400",
+        "no_sub_title": "DET Lions wins by over 14.5 points",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "35132.89",
+        "open_time": "2026-09-21T01:05:00Z",
+        "previous_price_dollars": "0.2400",
+        "previous_yes_ask_dollars": "0.2600",
+        "previous_yes_bid_dollars": "0.2500",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If DET Lions wins by more than 14.5 points in the NY Jets vs DET Lions Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "Kalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "greater",
+        "ticker": "KXNFLSPREAD-26SEP27NYJDET-DET15",
+        "title": "DET Lions wins by over 14.5 points?",
+        "updated_time": "2026-09-21T01:05:01.259443Z",
+        "volume_24h_fp": "34336.60",
+        "volume_fp": "35135.47",
+        "yes_ask_dollars": "0.2600",
+        "yes_ask_size_fp": "14033.79",
+        "yes_bid_dollars": "0.2500",
+        "yes_bid_size_fp": "280444.53",
+        "yes_sub_title": "DET Lions wins by over 14.5 points"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "",
+      "event_ticker": "KXNFLSPREAD-26SEP27LACBUF",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-21T01:08:18.935093Z",
+      "mutually_exclusive": false,
+      "product_metadata": {
+        "competition": "Pro Football",
+        "competition_scope": "Spread"
+      },
+      "series_ticker": "KXNFLSPREAD",
+      "settlement_sources": [
+        {
+          "name": "the Governing League",
+          "url": "https://www.nfl.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "LAC vs BUF (Sep 27)",
+      "title": "LA Chargers vs BUF Bills: Spread"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-21T01:00:59.780362Z",
+        "custom_strike": {
+          "football_team": "611e3786-3bfe-4919-bbd5-bc70fc13d827"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLSPREAD-26SEP27LACBUF",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "floor_strike": 7.5,
+        "last_price_dollars": "0.1000",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.9100",
+        "no_bid_dollars": "0.9000",
+        "no_sub_title": "LA Chargers wins by over 7.5 points",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "5873.90",
+        "open_time": "2026-09-21T01:05:00Z",
+        "previous_price_dollars": "0.0900",
+        "previous_yes_ask_dollars": "0.1000",
+        "previous_yes_bid_dollars": "0.0900",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If LA Chargers wins by more than 7.5 points in the LA Chargers vs BUF Bills Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "Kalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "greater",
+        "ticker": "KXNFLSPREAD-26SEP27LACBUF-LAC8",
+        "title": "LA Chargers wins by over 7.5 points?",
+        "updated_time": "2026-09-21T01:05:01.207576Z",
+        "volume_24h_fp": "4718.93",
+        "volume_fp": "5877.21",
+        "yes_ask_dollars": "0.1000",
+        "yes_ask_size_fp": "50214.67",
+        "yes_bid_dollars": "0.0900",
+        "yes_bid_size_fp": "5388.02",
+        "yes_sub_title": "LA Chargers wins by over 7.5 points"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-21T01:00:59.780362Z",
+        "custom_strike": {
+          "football_team": "f9acd396-ba35-4cae-a431-a44b2af707b0"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLSPREAD-26SEP27LACBUF",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "floor_strike": 7.5,
+        "last_price_dollars": "0.4600",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.5400",
+        "no_bid_dollars": "0.5300",
+        "no_sub_title": "BUF Bills wins by over 7.5 points",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "771605.18",
+        "open_time": "2026-09-21T01:05:00Z",
+        "previous_price_dollars": "0.4800",
+        "previous_yes_ask_dollars": "0.4900",
+        "previous_yes_bid_dollars": "0.4800",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If BUF Bills wins by more than 7.5 points in the LA Chargers vs BUF Bills Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "Kalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "greater",
+        "ticker": "KXNFLSPREAD-26SEP27LACBUF-BUF8",
+        "title": "BUF Bills wins by over 7.5 points?",
+        "updated_time": "2026-09-21T01:05:01.207576Z",
+        "volume_24h_fp": "686477.95",
+        "volume_fp": "955238.87",
+        "yes_ask_dollars": "0.4700",
+        "yes_ask_size_fp": "112060.57",
+        "yes_bid_dollars": "0.4600",
+        "yes_bid_size_fp": "999466.07",
+        "yes_sub_title": "BUF Bills wins by over 7.5 points"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "",
+      "event_ticker": "KXNFLSPREAD-26SEP27CINPIT",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-21T01:08:18.908859Z",
+      "mutually_exclusive": false,
+      "product_metadata": {
+        "competition": "Pro Football",
+        "competition_scope": "Spread"
+      },
+      "series_ticker": "KXNFLSPREAD",
+      "settlement_sources": [
+        {
+          "name": "the Governing League",
+          "url": "https://www.nfl.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "CIN vs PIT (Sep 27)",
+      "title": "CIN Bengals vs PIT Steelers: Spread"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-21T01:01:04.074809Z",
+        "custom_strike": {
+          "football_team": "6aa76797-7833-45e1-85e3-96e0122801e1"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLSPREAD-26SEP27CINPIT",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "floor_strike": 4.5,
+        "last_price_dollars": "0.2600",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.7500",
+        "no_bid_dollars": "0.7400",
+        "no_sub_title": "PIT Steelers wins by over 4.5 points",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "3431.22",
+        "open_time": "2026-09-21T01:05:00Z",
+        "previous_price_dollars": "0.2400",
+        "previous_yes_ask_dollars": "0.2600",
+        "previous_yes_bid_dollars": "0.2400",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If PIT Steelers wins by more than 4.5 points in the CIN Bengals vs PIT Steelers Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "Kalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "greater",
+        "ticker": "KXNFLSPREAD-26SEP27CINPIT-PIT5",
+        "title": "PIT Steelers wins by over 4.5 points?",
+        "updated_time": "2026-09-21T01:05:01.207576Z",
+        "volume_24h_fp": "3358.81",
+        "volume_fp": "3462.29",
+        "yes_ask_dollars": "0.2600",
+        "yes_ask_size_fp": "23258.20",
+        "yes_bid_dollars": "0.2500",
+        "yes_bid_size_fp": "2188.00",
+        "yes_sub_title": "PIT Steelers wins by over 4.5 points"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-21T01:01:04.074809Z",
+        "custom_strike": {
+          "football_team": "b007a1ab-bca6-42c7-8706-62607a605866"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXNFLSPREAD-26SEP27CINPIT",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "floor_strike": 4.5,
+        "last_price_dollars": "0.4200",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.5800",
+        "no_bid_dollars": "0.5700",
+        "no_sub_title": "CIN Bengals wins by over 4.5 points",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "18589.82",
+        "open_time": "2026-09-21T01:05:00Z",
+        "previous_price_dollars": "0.4300",
+        "previous_yes_ask_dollars": "0.4400",
+        "previous_yes_bid_dollars": "0.4300",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If CIN Bengals wins by more than 4.5 points in the CIN Bengals vs PIT Steelers Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "Kalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "greater",
+        "ticker": "KXNFLSPREAD-26SEP27CINPIT-CIN5",
+        "title": "CIN Bengals wins by over 4.5 points?",
+        "updated_time": "2026-09-21T01:05:01.207576Z",
+        "volume_24h_fp": "12911.19",
+        "volume_fp": "19082.54",
+        "yes_ask_dollars": "0.4300",
+        "yes_ask_size_fp": "930043.00",
+        "yes_bid_dollars": "0.4200",
+        "yes_bid_size_fp": "28715.42",
+        "yes_sub_title": "CIN Bengals wins by over 4.5 points"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "MECNET",
+      "event_ticker": "KXMLBGAME-26SEP271510TEXMIN",
+      "exchange_index": 3,
+      "last_updated_ts": "2026-09-24T19:23:12.251768Z",
+      "mutually_exclusive": true,
+      "product_metadata": {
+        "competition": "Pro Baseball",
+        "competition_scope": "Game"
+      },
+      "series_ticker": "KXMLBGAME",
+      "settlement_sources": [
+        {
+          "name": "ESPN",
+          "url": "https://www.espn.com"
+        },
+        {
+          "name": "Fox Sports",
+          "url": "https://www.foxsports.com"
+        },
+        {
+          "name": "the Governing League",
+          "url": "https://www.mlb.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "TEX vs MIN (Sep 27)",
+      "title": "Texas vs Minnesota"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-30T19:10:00Z",
+        "created_time": "2026-09-24T19:15:42.146705Z",
+        "custom_strike": {
+          "baseball_team": "ad64d981-5e58-4988-8e7e-7cac4ff4960c"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXMLBGAME-26SEP271510TEXMIN",
+        "exchange_index": 3,
+        "expected_expiration_time": "2026-09-27T22:10:00Z",
+        "expiration_time": "2026-09-30T19:10:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.5200",
+        "latest_expiration_time": "2026-09-30T19:10:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.4900",
+        "no_bid_dollars": "0.4800",
+        "no_sub_title": "Texas",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T22:10:00Z",
+        "open_interest_fp": "43914.76",
+        "open_time": "2026-09-24T19:25:00Z",
+        "previous_price_dollars": "0.5300",
+        "previous_yes_ask_dollars": "0.5300",
+        "previous_yes_bid_dollars": "0.5000",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If Texas wins the Texas vs Minnesota professional baseball game originally scheduled for Sep 27, 2026 at 3:10 PM EDT, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the Texas vs Minnesota professional baseball game originally scheduled for Sep 27, 2026 at 3:10 PM EDT. If this game is postponed or delayed, the market will remain open and close after the rescheduled game has finished (within two days). If the game is cancelled or rescheduled to over two days away, the market will resolve to a fair price in accordance with the rules.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 120,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXMLBGAME-26SEP271510TEXMIN-TEX",
+        "title": "Texas wins",
+        "updated_time": "2026-09-24T19:25:00.266652Z",
+        "volume_24h_fp": "50091.74",
+        "volume_fp": "50354.14",
+        "yes_ask_dollars": "0.5200",
+        "yes_ask_size_fp": "715008.51",
+        "yes_bid_dollars": "0.5100",
+        "yes_bid_size_fp": "3097.84",
+        "yes_sub_title": "Texas"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-30T19:10:00Z",
+        "created_time": "2026-09-24T19:15:42.146705Z",
+        "custom_strike": {
+          "baseball_team": "a2e0a7af-4208-4889-b60c-7c9254c67d5b"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXMLBGAME-26SEP271510TEXMIN",
+        "exchange_index": 3,
+        "expected_expiration_time": "2026-09-27T22:10:00Z",
+        "expiration_time": "2026-09-30T19:10:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.5000",
+        "latest_expiration_time": "2026-09-30T19:10:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.5100",
+        "no_bid_dollars": "0.5000",
+        "no_sub_title": "Minnesota",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T22:10:00Z",
+        "open_interest_fp": "82604.73",
+        "open_time": "2026-09-24T19:25:00Z",
+        "previous_price_dollars": "0.5000",
+        "previous_yes_ask_dollars": "0.4900",
+        "previous_yes_bid_dollars": "0.4800",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If Minnesota wins the Texas vs Minnesota professional baseball game originally scheduled for Sep 27, 2026 at 3:10 PM EDT, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the Texas vs Minnesota professional baseball game originally scheduled for Sep 27, 2026 at 3:10 PM EDT. If this game is postponed or delayed, the market will remain open and close after the rescheduled game has finished (within two days). If the game is cancelled or rescheduled to over two days away, the market will resolve to a fair price in accordance with the rules.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 120,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXMLBGAME-26SEP271510TEXMIN-MIN",
+        "title": "Minnesota wins",
+        "updated_time": "2026-09-24T19:25:00.266652Z",
+        "volume_24h_fp": "82569.89",
+        "volume_fp": "82865.90",
+        "yes_ask_dollars": "0.5000",
+        "yes_ask_size_fp": "711790.14",
+        "yes_bid_dollars": "0.4900",
+        "yes_bid_size_fp": "3060.34",
+        "yes_sub_title": "Minnesota"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "MECNET",
+      "event_ticker": "KXMLBGAME-26SEP271505TBPHI",
+      "exchange_index": 3,
+      "last_updated_ts": "2026-09-27T15:45:37.929128Z",
+      "mutually_exclusive": true,
+      "product_metadata": {
+        "competition": "Pro Baseball",
+        "competition_scope": "Game"
+      },
+      "series_ticker": "KXMLBGAME",
+      "settlement_sources": [
+        {
+          "name": "ESPN",
+          "url": "https://www.espn.com"
+        },
+        {
+          "name": "Fox Sports",
+          "url": "https://www.foxsports.com"
+        },
+        {
+          "name": "the Governing League",
+          "url": "https://www.mlb.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "TB vs PHI (Sep 27)",
+      "title": "Tampa Bay vs Philadelphia"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-30T19:05:00Z",
+        "created_time": "2026-09-24T19:15:53.805431Z",
+        "custom_strike": {
+          "baseball_team": "942f3f85-869a-4f7a-8e5a-336365c5294b"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXMLBGAME-26SEP271505TBPHI",
+        "exchange_index": 3,
+        "expected_expiration_time": "2026-09-27T22:05:00Z",
+        "expiration_time": "2026-09-30T19:05:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.3800",
+        "latest_expiration_time": "2026-09-30T19:05:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.6300",
+        "no_bid_dollars": "0.6200",
+        "no_sub_title": "Tampa Bay",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T22:05:00Z",
+        "open_interest_fp": "147801.80",
+        "open_time": "2026-09-24T19:25:00Z",
+        "previous_price_dollars": "0.5200",
+        "previous_yes_ask_dollars": "0.5200",
+        "previous_yes_bid_dollars": "0.4800",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If Tampa Bay wins the Tampa Bay vs Philadelphia professional baseball game originally scheduled for Sep 27, 2026 at 3:05 PM EDT, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the Tampa Bay vs Philadelphia professional baseball game originally scheduled for Sep 27, 2026 at 3:05 PM EDT. If this game is postponed or delayed, the market will remain open and close after the rescheduled game has finished (within two days). If the game is cancelled or rescheduled to over two days away, the market will resolve to a fair price in accordance with the rules.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 120,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXMLBGAME-26SEP271505TBPHI-TB",
+        "title": "Tampa Bay wins",
+        "updated_time": "2026-09-27T15:45:37.982399Z",
+        "volume_24h_fp": "146884.89",
+        "volume_fp": "154386.04",
+        "yes_ask_dollars": "0.3800",
+        "yes_ask_size_fp": "437196.67",
+        "yes_bid_dollars": "0.3700",
+        "yes_bid_size_fp": "158463.24",
+        "yes_sub_title": "Tampa Bay"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-30T19:05:00Z",
+        "created_time": "2026-09-24T19:15:53.805431Z",
+        "custom_strike": {
+          "baseball_team": "bf277158-b28d-4a0e-aa3b-54fd3acd3009"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXMLBGAME-26SEP271505TBPHI",
+        "exchange_index": 3,
+        "expected_expiration_time": "2026-09-27T22:05:00Z",
+        "expiration_time": "2026-09-30T19:05:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.6300",
+        "latest_expiration_time": "2026-09-30T19:05:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.3800",
+        "no_bid_dollars": "0.3700",
+        "no_sub_title": "Philadelphia",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T22:05:00Z",
+        "open_interest_fp": "312716.23",
+        "open_time": "2026-09-24T19:25:00Z",
+        "previous_price_dollars": "0.5200",
+        "previous_yes_ask_dollars": "0.5200",
+        "previous_yes_bid_dollars": "0.4800",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If Philadelphia wins the Tampa Bay vs Philadelphia professional baseball game originally scheduled for Sep 27, 2026 at 3:05 PM EDT, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the Tampa Bay vs Philadelphia professional baseball game originally scheduled for Sep 27, 2026 at 3:05 PM EDT. If this game is postponed or delayed, the market will remain open and close after the rescheduled game has finished (within two days). If the game is cancelled or rescheduled to over two days away, the market will resolve to a fair price in accordance with the rules.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 120,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXMLBGAME-26SEP271505TBPHI-PHI",
+        "title": "Philadelphia wins",
+        "updated_time": "2026-09-27T15:45:37.982399Z",
+        "volume_24h_fp": "314924.28",
+        "volume_fp": "316072.96",
+        "yes_ask_dollars": "0.6300",
+        "yes_ask_size_fp": "612928.28",
+        "yes_bid_dollars": "0.6200",
+        "yes_bid_size_fp": "203919.95",
+        "yes_sub_title": "Philadelphia"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "MECNET",
+      "event_ticker": "KXCS2GAME-26SEP271100MGCNIP",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-27T15:01:34.638371Z",
+      "mutually_exclusive": true,
+      "product_metadata": {
+        "competition": "CS2",
+        "competition_scope": "Game"
+      },
+      "series_ticker": "KXCS2GAME",
+      "settlement_sources": [
+        {
+          "name": "B03",
+          "url": "https://bo3.gg/matches/finished"
+        },
+        {
+          "name": "HLTV",
+          "url": "https://www.hltv.org/results"
+        },
+        {
+          "name": "Gamers World",
+          "url": "https://egamersworld.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "magic vs. NIP (Sep 27)",
+      "title": "magic vs. NIP"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T15:00:00Z",
+        "created_time": "2026-09-26T22:20:50.388054Z",
+        "custom_strike": {
+          "esports_competitor": "fefc711f-8a02-4c36-9163-e90b5b132bbe"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXCS2GAME-26SEP271100MGCNIP",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T19:00:00Z",
+        "expiration_time": "2026-09-29T15:00:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.7100",
+        "latest_expiration_time": "2026-09-29T15:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.3100",
+        "no_bid_dollars": "0.2800",
+        "no_sub_title": "NIP",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T19:00:00Z",
+        "open_interest_fp": "35882.22",
+        "open_time": "2026-09-26T22:25:00Z",
+        "previous_price_dollars": "0.0000",
+        "previous_yes_ask_dollars": "0.0000",
+        "previous_yes_bid_dollars": "0.0000",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If NIP wins the 1win Private Club #1 2026: magic vs. NIP CS2 match originally scheduled for Sep 27, 2026 at 11:00 AM EDT, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the full match in the 1win Private Club #1 2026: magic vs. NIP CS2 match originally scheduled for Sep 27, 2026 at 11:00 AM EDT\nIf the relevant match is postponed and not started within 48 hours of its originally scheduled start time, the market will resolve to the fair market price.\nIf the relevant match is cancelled before play begins, the market will resolve to the fair market price.\nIf the relevant match is forfeited before any play occurs, the market will resolve to the fair market price.\nIf the relevant match begins and is subsequently forfeited, the market will resolve according to the official result published by the governing body or tournament organizer.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 116,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXCS2GAME-26SEP271100MGCNIP-NIP",
+        "title": "NIP wins",
+        "updated_time": "2026-09-27T15:01:34.642789Z",
+        "volume_24h_fp": "35613.25",
+        "volume_fp": "36702.35",
+        "yes_ask_dollars": "0.7200",
+        "yes_ask_size_fp": "720.40",
+        "yes_bid_dollars": "0.6900",
+        "yes_bid_size_fp": "1236.96",
+        "yes_sub_title": "NIP"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T15:00:00Z",
+        "created_time": "2026-09-26T22:20:50.388054Z",
+        "custom_strike": {
+          "esports_competitor": "cc67c667-75da-467d-8a88-7e6190ad3768"
+        },
+        "early_close_condition": "This market will close and expire after a winner is declared.",
+        "event_ticker": "KXCS2GAME-26SEP271100MGCNIP",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T19:00:00Z",
+        "expiration_time": "2026-09-29T15:00:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.3100",
+        "latest_expiration_time": "2026-09-29T15:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.7000",
+        "no_bid_dollars": "0.6900",
+        "no_sub_title": "magic",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T19:00:00Z",
+        "open_interest_fp": "38955.50",
+        "open_time": "2026-09-26T22:25:00Z",
+        "previous_price_dollars": "0.0000",
+        "previous_yes_ask_dollars": "0.0000",
+        "previous_yes_bid_dollars": "0.0000",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If magic wins the 1win Private Club #1 2026: magic vs. NIP CS2 match originally scheduled for Sep 27, 2026 at 11:00 AM EDT, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the full match in the 1win Private Club #1 2026: magic vs. NIP CS2 match originally scheduled for Sep 27, 2026 at 11:00 AM EDT\nIf the relevant match is postponed and not started within 48 hours of its originally scheduled start time, the market will resolve to the fair market price.\nIf the relevant match is cancelled before play begins, the market will resolve to the fair market price.\nIf the relevant match is forfeited before any play occurs, the market will resolve to the fair market price.\nIf the relevant match begins and is subsequently forfeited, the market will resolve according to the official result published by the governing body or tournament organizer.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 116,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXCS2GAME-26SEP271100MGCNIP-MGC",
+        "title": "magic wins",
+        "updated_time": "2026-09-27T15:01:34.642789Z",
+        "volume_24h_fp": "55246.37",
+        "volume_fp": "55348.80",
+        "yes_ask_dollars": "0.3100",
+        "yes_ask_size_fp": "1548.25",
+        "yes_bid_dollars": "0.3000",
+        "yes_bid_size_fp": "33.00",
+        "yes_sub_title": "magic"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "MECNET",
+      "event_ticker": "KXNFL1H-26SEP27KCMIA",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-22T17:17:19.585609Z",
+      "mutually_exclusive": true,
+      "product_metadata": {
+        "competition": "Pro Football",
+        "competition_scope": "1st Half Winner"
+      },
+      "series_ticker": "KXNFL1H",
+      "settlement_sources": [
+        {
+          "name": "the Governing League",
+          "url": "https://www.nfl.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "KC vs MIA (Sep 27)",
+      "title": "KC Chiefs vs MIA Dolphins: 1st Half Winner"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-22T17:15:34.826773Z",
+        "custom_strike": {
+          "football_team": "4cba614d-2d32-48ef-a066-1524437fbaff"
+        },
+        "early_close_condition": "This market will close and expire after the event occurs.",
+        "event_ticker": "KXNFL1H-26SEP27KCMIA",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.2200",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.7900",
+        "no_bid_dollars": "0.7800",
+        "no_sub_title": "Miami wins 1st Half",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "2094.00",
+        "open_time": "2026-09-22T17:35:00Z",
+        "previous_price_dollars": "0.2100",
+        "previous_yes_ask_dollars": "0.2100",
+        "previous_yes_bid_dollars": "0.1900",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If Miami wins the 1st Half of the KC Chiefs vs MIA Dolphins Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the team that scores the most points during the 1st Half. Only points scored during the 1st Half of play count towards this market. If both teams score the same amount of points during the half, all team strikes resolve to No and the Tie strike resolves to Yes.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXNFL1H-26SEP27KCMIA-MIA",
+        "title": "Will Miami win the 1st Half?",
+        "updated_time": "2026-09-26T01:20:23.847955Z",
+        "volume_24h_fp": "1694.89",
+        "volume_fp": "2096.27",
+        "yes_ask_dollars": "0.2200",
+        "yes_ask_size_fp": "15514.25",
+        "yes_bid_dollars": "0.2100",
+        "yes_bid_size_fp": "3315.00",
+        "yes_sub_title": "Miami"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-22T17:15:34.826773Z",
+        "custom_strike": {
+          "football_team": "64f72720-2e4a-4cc8-a39b-ca148aecb389"
+        },
+        "early_close_condition": "This market will close and expire after the event occurs.",
+        "event_ticker": "KXNFL1H-26SEP27KCMIA",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.7200",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.2900",
+        "no_bid_dollars": "0.2800",
+        "no_sub_title": "Kansas City wins 1st Half",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "17921.76",
+        "open_time": "2026-09-22T17:35:00Z",
+        "previous_price_dollars": "0.7200",
+        "previous_yes_ask_dollars": "0.7200",
+        "previous_yes_bid_dollars": "0.7100",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If Kansas City wins the 1st Half of the KC Chiefs vs MIA Dolphins Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the team that scores the most points during the 1st Half. Only points scored during the 1st Half of play count towards this market. If both teams score the same amount of points during the half, all team strikes resolve to No and the Tie strike resolves to Yes.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXNFL1H-26SEP27KCMIA-KC",
+        "title": "Will Kansas City win the 1st Half?",
+        "updated_time": "2026-09-26T01:20:23.847955Z",
+        "volume_24h_fp": "9860.34",
+        "volume_fp": "18262.14",
+        "yes_ask_dollars": "0.7200",
+        "yes_ask_size_fp": "12809.62",
+        "yes_bid_dollars": "0.7100",
+        "yes_bid_size_fp": "28879.00",
+        "yes_sub_title": "Kansas City"
+      },
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-22T17:15:34.826773Z",
+        "custom_strike": {
+          "football_team": "111193d4-9b1f-4bd8-ab8b-9de252737f05"
+        },
+        "early_close_condition": "This market will close and expire after the event occurs.",
+        "event_ticker": "KXNFL1H-26SEP27KCMIA",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "last_price_dollars": "0.0600",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.9400",
+        "no_bid_dollars": "0.9300",
+        "no_sub_title": "Tie 1st Half",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "21494.60",
+        "open_time": "2026-09-22T17:35:00Z",
+        "previous_price_dollars": "0.0800",
+        "previous_yes_ask_dollars": "0.0800",
+        "previous_yes_bid_dollars": "0.0600",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If neither team wins the 1st Half of the KC Chiefs vs MIA Dolphins Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "The following market refers to the team that scores the most points during the 1st Half. Only points scored during the 1st Half of play count towards this market. If both teams score the same amount of points during the half, all team strikes resolve to No and the Tie strike resolves to Yes.\n\nKalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "structured",
+        "ticker": "KXNFL1H-26SEP27KCMIA-TIE",
+        "title": "Will neither team win the 1st Half?",
+        "updated_time": "2026-09-26T01:20:23.847955Z",
+        "volume_24h_fp": "20472.37",
+        "volume_fp": "23374.56",
+        "yes_ask_dollars": "0.0700",
+        "yes_ask_size_fp": "24960.54",
+        "yes_bid_dollars": "0.0600",
+        "yes_bid_size_fp": "38770.00",
+        "yes_sub_title": "Tie"
+      }
+    ]
+  },
+  {
+    "event": {
+      "category": "Sports",
+      "collateral_return_type": "",
+      "event_ticker": "KXNFLTEAMTOTAL-26SEP27NYJDET",
+      "exchange_index": 0,
+      "last_updated_ts": "2026-09-21T22:11:39.908877Z",
+      "mutually_exclusive": false,
+      "product_metadata": {
+        "competition": "Pro Football",
+        "competition_scope": "Team Total"
+      },
+      "series_ticker": "KXNFLTEAMTOTAL",
+      "settlement_sources": [
+        {
+          "name": "the Governing League",
+          "url": "https://www.nfl.com/"
+        }
+      ],
+      "strike_period": "",
+      "sub_title": "NYJ vs DET (Sep 27)",
+      "title": "NY Jets vs DET Lions: Team Total"
+    },
+    "markets": [
+      {
+        "can_close_early": true,
+        "close_time": "2026-09-29T17:00:00Z",
+        "created_time": "2026-09-21T22:00:53.986301Z",
+        "custom_strike": {
+          "football_team": "ccc2af2d-5c4d-4717-8036-5ba6bec5cfbd"
+        },
+        "early_close_condition": "This market will close and expire early if the event occurs.",
+        "event_ticker": "KXNFLTEAMTOTAL-26SEP27NYJDET",
+        "exchange_index": 0,
+        "expected_expiration_time": "2026-09-27T20:00:00Z",
+        "expiration_time": "2026-09-29T17:00:00Z",
+        "expiration_value": "",
+        "floor_strike": 20.5,
+        "last_price_dollars": "0.5000",
+        "latest_expiration_time": "2026-09-29T17:00:00Z",
+        "liquidity_dollars": "0.0000",
+        "market_type": "binary",
+        "no_ask_dollars": "0.5100",
+        "no_bid_dollars": "0.5000",
+        "no_sub_title": "NY Jets over 20.5 points scored",
+        "notional_value_dollars": "1.0000",
+        "occurrence_datetime": "2026-09-27T20:00:00Z",
+        "open_interest_fp": "7742.82",
+        "open_time": "2026-09-21T22:05:00Z",
+        "previous_price_dollars": "0.5200",
+        "previous_yes_ask_dollars": "0.5200",
+        "previous_yes_bid_dollars": "0.5100",
+        "price_level_structure": "linear_cent",
+        "price_ranges": [
+          {
+            "end": "1.0000",
+            "start": "0.0000",
+            "step": "0.0100"
+          }
+        ],
+        "result": "",
+        "rules_primary": "If NY Jets scores over 20.5 points in the NY Jets vs DET Lions Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "rules_secondary": "Kalshi is not affiliated, associated, authorized, endorsed by, or in any way officially connected with the Governing League. All trademarks, logos, and brand names are the property of their respective owners.",
+        "settlement_timer_seconds": 60,
+        "status": "active",
+        "strike_type": "greater",
+        "ticker": "KXNFLTEAMTOTAL-26SEP27NYJDET-NYJ21",
+        "title": "NY Jets over 20.5 points scored",
+        "updated_time": "2026-09-21T22:05:01.368689Z",
+        "volume_24h_fp": "5792.15",
+        "volume_fp": "9881.80",
+        "yes_ask_dollars": "0.5000",
+        "yes_ask_size_fp": "29573.07",
+        "yes_bid_dollars": "0.4900",
+        "yes_bid_size_fp": "48180.34",
+        "yes_sub_title": "NY Jets over 20.5 points scored"
+      }
+    ]
+  }
+]

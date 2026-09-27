@@ -1,0 +1,129 @@
+[
+  {
+    "event_ticker": "KXNFLSPREAD-26SEP27CARCLE",
+    "series_ticker": "KXNFLSPREAD",
+    "title": "CAR Panthers vs CLE Browns: Spread",
+    "sub_title": "CAR vs CLE (Sep 27)",
+    "mutually_exclusive": false,
+    "markets": [
+      {
+        "ticker": "KXNFLSPREAD-26SEP27CARCLE-CAR21",
+        "event_ticker": "KXNFLSPREAD-26SEP27CARCLE",
+        "title": "CAR Panthers wins by over 20.5 points?",
+        "yes_sub_title": "CAR Panthers wins by over 20.5 points",
+        "no_sub_title": "CAR Panthers wins by over 20.5 points",
+        "strike_type": "greater",
+        "floor_strike": 20.5,
+        "status": "active",
+        "close_time": "2026-09-29T17:00:00Z",
+        "yes_ask_dollars": "0.0800",
+        "no_ask_dollars": "0.9300",
+        "yes_ask_size_fp": "14893.75",
+        "yes_bid_size_fp": "4080.00",
+        "rules_primary": "If CAR Panthers wins by more than 20.5 points in the CAR Panthers vs CLE Browns Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "notional_value_dollars": "1.0000"
+      },
+      {
+        "ticker": "KXNFLSPREAD-26SEP27CARCLE-CAR18",
+        "event_ticker": "KXNFLSPREAD-26SEP27CARCLE",
+        "title": "CAR Panthers wins by over 17.5 points?",
+        "yes_sub_title": "CAR Panthers wins by over 17.5 points",
+        "no_sub_title": "CAR Panthers wins by over 17.5 points",
+        "strike_type": "greater",
+        "floor_strike": 17.5,
+        "status": "active",
+        "close_time": "2026-09-29T17:00:00Z",
+        "yes_ask_dollars": "0.1100",
+        "no_ask_dollars": "0.9000",
+        "yes_ask_size_fp": "15072.81",
+        "yes_bid_size_fp": "3930.00",
+        "rules_primary": "If CAR Panthers wins by more than 17.5 points in the CAR Panthers vs CLE Browns Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "notional_value_dollars": "1.0000"
+      }
+    ]
+  },
+  {
+    "event_ticker": "KXNFLTOTAL-26SEP27CARCLE",
+    "series_ticker": "KXNFLTOTAL",
+    "title": "CAR Panthers vs CLE Browns: Total Points",
+    "sub_title": "CAR vs CLE (Sep 27)",
+    "mutually_exclusive": false,
+    "markets": [
+      {
+        "ticker": "KXNFLTOTAL-26SEP27CARCLE-20",
+        "event_ticker": "KXNFLTOTAL-26SEP27CARCLE",
+        "title": "Full Game: over 19.5 points scored?",
+        "yes_sub_title": "Over 19.5 points",
+        "no_sub_title": "Over 19.5 points scored",
+        "strike_type": "greater",
+        "floor_strike": 19.5,
+        "status": "active",
+        "close_time": "2026-09-29T17:00:00Z",
+        "yes_ask_dollars": "0.9800",
+        "no_ask_dollars": "0.0400",
+        "yes_ask_size_fp": "17095.81",
+        "yes_bid_size_fp": "2627.98",
+        "rules_primary": "If CAR Panthers and CLE Browns collectively score more than 19.5 points in the CAR Panthers vs CLE Browns Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "notional_value_dollars": "1.0000"
+      },
+      {
+        "ticker": "KXNFLTOTAL-26SEP27CARCLE-23",
+        "event_ticker": "KXNFLTOTAL-26SEP27CARCLE",
+        "title": "Full Game: over 22.5 points scored?",
+        "yes_sub_title": "Over 22.5 points",
+        "no_sub_title": "Over 22.5 points scored",
+        "strike_type": "greater",
+        "floor_strike": 22.5,
+        "status": "active",
+        "close_time": "2026-09-29T17:00:00Z",
+        "yes_ask_dollars": "0.9600",
+        "no_ask_dollars": "0.0500",
+        "yes_ask_size_fp": "5657.00",
+        "yes_bid_size_fp": "2345.00",
+        "rules_primary": "If CAR Panthers and CLE Browns collectively score more than 22.5 points in the CAR Panthers vs CLE Browns Pro Football game originally scheduled for Sep 27, 2026, then the market resolves to Yes.",
+        "notional_value_dollars": "1.0000"
+      }
+    ]
+  },
+  {
+    "event_ticker": "KXCS2GAME-26SEP261000BAKSLEO",
+    "series_ticker": "KXCS2GAME",
+    "title": "BakS eSports vs. Leo Team",
+    "sub_title": "BakS eSports vs. Leo Team (Sep 26)",
+    "mutually_exclusive": true,
+    "markets": [
+      {
+        "ticker": "KXCS2GAME-26SEP261000BAKSLEO-BAKS",
+        "event_ticker": "KXCS2GAME-26SEP261000BAKSLEO",
+        "title": "BakS eSports wins",
+        "yes_sub_title": "BakS eSports",
+        "no_sub_title": "BakS eSports",
+        "strike_type": "structured",
+        "status": "active",
+        "close_time": "2026-09-28T14:00:00Z",
+        "yes_ask_dollars": "0.2000",
+        "no_ask_dollars": "0.8700",
+        "yes_ask_size_fp": "16.02",
+        "yes_bid_size_fp": "79.00",
+        "rules_primary": "If BakS eSports wins the CCT Europe Series #9 2026: BakS eSports vs. Leo Team CS2 match originally scheduled for Sep 26, 2026 at 10:00 AM EDT, then the market resolves to Yes.",
+        "notional_value_dollars": "1.0000"
+      },
+      {
+        "ticker": "KXCS2GAME-26SEP261000BAKSLEO-LEO",
+        "event_ticker": "KXCS2GAME-26SEP261000BAKSLEO",
+        "title": "Leo Team wins",
+        "yes_sub_title": "Leo Team",
+        "no_sub_title": "Leo Team",
+        "strike_type": "structured",
+        "status": "active",
+        "close_time": "2026-09-28T14:00:00Z",
+        "yes_ask_dollars": "0.8300",
+        "no_ask_dollars": "0.2300",
+        "yes_ask_size_fp": "39.63",
+        "yes_bid_size_fp": "21.02",
+        "rules_primary": "If Leo Team wins the CCT Europe Series #9 2026: BakS eSports vs. Leo Team CS2 match originally scheduled for Sep 26, 2026 at 10:00 AM EDT, then the market resolves to Yes.",
+        "notional_value_dollars": "1.0000"
+      }
+    ]
+  }
+]

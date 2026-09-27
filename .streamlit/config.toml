@@ -1,0 +1,31 @@
+[theme]
+base = "dark"
+primaryColor = "#62c7c5"
+backgroundColor = "#080a0b"
+secondaryBackgroundColor = "#0f1315"
+textColor = "#d8dee4"
+linkColor = "#62c7c5"
+borderColor = "#3b4448"
+dataframeBorderColor = "#3b4448"
+dataframeHeaderBackgroundColor = "#101416"
+redColor = "#ff6b6b"
+orangeColor = "#ddb45b"
+yellowColor = "#ddb45b"
+greenColor = "#75d681"
+blueColor = "#62c7c5"
+violetColor = "#a6a0d8"
+grayColor = "#78858a"
+font = "monospace"
+headingFont = "monospace"
+codeFont = "monospace"
+baseFontSize = 13
+baseRadius = "none"
+buttonRadius = "none"
+showWidgetBorder = true
+showSidebarBorder = true
+
+[client]
+toolbarMode = "minimal"
+
+[server]
+headless = true

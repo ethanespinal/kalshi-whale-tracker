@@ -220,3 +220,12 @@ __marimo__/
 .env
 .venv/
 __pycache__/
+
+kalshi_events.json
+
+# Telegram credentials and local paper ledger
+*.session
+*.session-*
+*.sqlite3
+*.sqlite3-*
+paper_trading_results.csv
